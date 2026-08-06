@@ -66,4 +66,46 @@ double find_max(double* pa, int size)
 - 함수 안에서는 `sizeof(pa)`로 배열의 길이를 구할 수 없다.
 - 함수의 매개변수 `pa`는 배열이 아니라 포인터이기 때문이다.
 - 따라서 배열의 크기(`size`)를 함께 전달해야 한다.
-  
+
+## 추가 예제 문제( 각 달의 일수를 저장한 배열을 포인터를 이용해 5개씩 끊어서 표현하기)
+```c
+#include <stdio.h>
+
+int month[12] = {
+	31, 28, 31, 30, 31, 30,
+	31, 31, 30, 31, 30, 31
+};
+
+void print_month(int* mo);
+
+int main(void)
+{
+	print_month(month);
+	return 0;
+}
+
+void print_month(int *mo)
+{
+	int i;
+	for (i = 0; i < 12; i++)
+	{
+		printf("%5d", mo[i]);
+		if ((i+1) % 5 ==0) printf("\n");
+
+	}
+}
+```
+
+실행예시
+'''
+   31   28   31   30   31
+   30   31   31   30   31
+   30   31
+```
+
+''' text
+배운점 
+1)print_month(month);에서 month는 배열이지만 함수 호출 시 첫 번째 요소의 주소가 전달된다.
+2)따라서 함수는 int *mo 하나만 받아도 배열 전체를 처리할 수 있다.
+3)함수 내부에서 mo[i]와 *(mo + i)는 같은 의미이다
+'''
