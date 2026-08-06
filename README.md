@@ -4,7 +4,7 @@ collection of C programming practice examples.
 C 언어를 공부하며 인상적인 예제 코드를 저장한 저장소입니다. 
 
 ## CONTENTS 
-
+---c
 -Variables 
 -Operators
 -Arrays
@@ -13,9 +13,11 @@ C 언어를 공부하며 인상적인 예제 코드를 저장한 저장소입니
 -Functions
 -File I/O
 -Dynamic Memory 
+---
 
 1. 배열과 포인터와의 관계
 
+---c
 #include <stdio.h>
 
 int main(void)
@@ -50,8 +52,9 @@ int main(void)
 
     return 0;
 }
+---
 
--실행결과예시
+---text
 pa address : 000000FCD09BFC58
 pb address : 000000FCD09BFC64
 
@@ -63,6 +66,7 @@ Current value : 30
 
 pb - pa = 0
 Current value : 40
+---
 
 -예제에서 배울 점 
 1) 배열명은 첫 번째 요소의 주소이다.
@@ -72,6 +76,7 @@ Current value : 40
 
 2. double 배열과 포인터
 
+---c
 #include <stdio.h>
 
 int main(void)
@@ -89,15 +94,17 @@ int main(void)
 
     return 0;
 }
+---
 
 실행결과 예시
+---text
 0000004C228FFB68
 3.5
 0000004C228FFB78
 0.5
 7.4
 2
-
+---
 배운점과 실수한점 
 1. 포인터 차이인 pb-pa 는 %td 를 써야한다.
 2. 주소 출력 %p 에는 (void*) 를 형변환으로 표시해줘야 한다.
