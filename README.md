@@ -69,3 +69,36 @@ Current value : 40
 2) 포인터에 배열명을 저장하면 포인터를 배열명처럼 사용할 수 있다.
 3) 포인터의 뺄셈 결과는 배열 요소 간의 간격 차이를 의미한다.
 4) 학교에서 배울때는 %u 를 사용했지만 이는 32비트와 64비트 환경에서 포인터 크기가 다를때 오류가 생길 수 있다. 때문에 표준 c언어 환경에서는 %p 를 사용한다. 이는 포인터 전용 형식 지정자이다. 
+
+2. double 배열과 포인터
+
+#include <stdio.h>
+
+int main(void)
+{
+    double ary[5] = {1.2, 3.5, 7.4, 0.5, 10.0};
+    double *pa = ary;
+    double *pb = ary + 2;
+
+    printf("%p\n", (void *)ary);
+    printf("%.1f\n", *(ary + 1));
+    printf("%p\n", (void *)(pa + 2));
+    printf("%.1f\n", pa[3]);
+    printf("%.1f\n", *pb);
+    printf("%td\n", pb - pa);
+
+    return 0;
+}
+
+실행결과 예시
+0000004C228FFB68
+3.5
+0000004C228FFB78
+0.5
+7.4
+2
+
+배운점과 실수한점 
+1. 포인터 차이인 pb-pa 는 %td 를 써야한다.
+2. 주소 출력 %p 에는 (void*) 를 형변환으로 표시해줘야 한다.
+3. double 은 printf 에서 %f 를 써야한다. 
