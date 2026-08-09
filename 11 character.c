@@ -171,3 +171,76 @@ int main(void)
    - 소수점 한 자리 출력 → `%.1f`
 
 > ⭐ `scanf_s()` 뒤에 항상 `getchar()`가 필요한 것은 아니다. 다음에 `%c`로 문자를 입력받는 경우처럼 `\n` 처리가 필요할 때 사용한다.
+
+## 소문자 개수 세는 코드 
+
+```c
+#include <Stdio.h>
+
+int main(void)
+{
+	int ch;
+	int cnt = 0;
+	ch = getchar();
+
+	while (ch != '\n')
+	{
+		if (ch >= 97 && ch <= 122) cnt++;
+		ch = getchar();
+	}
+	printf("소문자의 개수: %d\n", cnt);
+
+	return 0;
+}
+```
+
+## 입력받은 단어중 가장 긴 단어의 길이를 출력하는 함수 
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    int ch;
+    int len = 0;
+    int max = 0;
+
+    ch = getchar();
+
+    while (ch != EOF)
+    {
+        if (ch == '\n')
+        {
+            if (len > max)
+                max = len;
+
+            len = 0;
+        }
+        else
+        {
+            len++;
+        }
+
+        ch = getchar();
+    }
+
+    if (len > max)
+        max = len;
+
+    printf("가장 긴 단어의 길이: %d\n", max);
+
+    return 0;
+}
+```
+##실행예시
+'''text
+apple
+kiwi
+strawberry
+mango
+^Z
+가장 긴 단어의 길이: 10
+```	
+	
+### 
+- 어렵다고 느껴 chat gpt 의 도움을 많이 받았다. 두고 두고 봐야할것 같다. 
+	
